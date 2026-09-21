@@ -1,0 +1,19 @@
+[Unit]
+Description=C64 Chain pool: stratum server (miners, share checking with the rxhash helper, block submission)
+After=c64-pool-redis.service c64-node.service c64-wallet-rpc.service
+Requires=c64-pool-redis.service
+[Service]
+Type=simple
+User=c64pool
+WorkingDirectory=/opt/c64-nodejs-pool
+ExecStart=/usr/bin/node /opt/c64-nodejs-pool/init.js -module=pool
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+NoNewPrivileges=true
+PrivateTmp=true
+# ports below 1024 need this:
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target

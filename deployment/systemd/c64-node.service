@@ -1,0 +1,16 @@
+[Unit]
+Description=C64 Chain node (c64chaind-mainnet)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=c64pool
+ExecStart=/opt/c64/bin/c64chaind-mainnet --data-dir /opt/c64/data --non-interactive --rpc-bind-ip 127.0.0.1 --rpc-bind-port 19641 --p2p-bind-port 19640 --no-zmq --log-level 1 --max-log-file-size 0
+Restart=on-failure
+RestartSec=15
+LimitNOFILE=65536
+TimeoutStopSec=120
+
+[Install]
+WantedBy=multi-user.target

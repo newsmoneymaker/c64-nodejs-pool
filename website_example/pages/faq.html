@@ -1,0 +1,86 @@
+<!-- FAQ (C64 Chain). Two language blocks; the one matching the site language is shown. -->
+
+<div class="faq" data-faq="en">
+    <h3>Frequently Asked Questions (FAQ)</h3>
+
+    <h4 class="push-up-20">What do I use as my wallet address?</h4>
+    <div class="card padding-15 push-down-10">
+        A C64 Chain <strong>address</strong>: <code>Wo…</code>, 97 characters. In the C64 Chain wallet run <code>address</code>.
+        Integrated addresses (with a payment id) are not accepted. Payments are sent to this address.
+    </div>
+
+    <h4 class="push-up-20">Which algorithm do I mine?</h4>
+    <div class="card padding-15 push-down-10">
+        <code>rx/c64</code>, a RandomX variant, on the CPU. Use poolpayminer.
+    </div>
+
+    <h4 class="push-up-20">Can I change my difficulty?</h4>
+    <div class="card padding-15 push-down-10">
+        It adjusts automatically to your hashrate (about one share every 20 seconds). Fixed difficulty is not available.
+    </div>
+
+    <h4 class="push-up-20">How are rewards split?</h4>
+    <div class="card padding-15 push-down-10">
+        Proportionally to your shares in the round, with time weighting: older shares of a round weigh less than newer ones,
+        which protects against pool hopping. Use <code>solo:ADDRESS</code> as your login if you want to take the whole reward
+        for a block you find yourself instead of sharing it.
+    </div>
+
+    <h4 class="push-up-20">When do I get paid?</h4>
+    <div class="card padding-15 push-down-10">
+        A block reward is credited to the balances in four parts: the coin locks every block reward and releases it in four equal parts after about <strong>24 hours, 30, 60 and 90 days</strong>
+        (the pool credits the first part after 300 blocks and each further part when it unlocks; the locked rest is shown on your dashboard). Everyone whose balance
+        is above the minimum payout is paid in one transaction per round; the network fee is shared by the paid miners.
+        The payment appears on the Payments page with a link to the transaction in the block explorer.
+    </div>
+
+    <h4 class="push-up-20">The pool does not accept my address</h4>
+    <div class="card padding-15 push-down-10">
+        It must be a standard C64 Chain address starting with <code>Wo</code> (97 characters). Copy it from the wallet without spaces.
+    </div>
+</div>
+
+<div class="faq" data-faq="ru">
+    <h3>Часто задаваемые вопросы (FAQ)</h3>
+
+    <h4 class="push-up-20">Какой адрес кошелька указывать?</h4>
+    <div class="card padding-15 push-down-10">
+        <strong>Адрес</strong> C64 Chain: <code>Wo…</code>, 97 символов. В кошельке C64 Chain выполните <code>address</code>.
+        Integrated-адреса (с payment id) не принимаются. Выплаты отправляются на этот адрес.
+    </div>
+
+    <h4 class="push-up-20">Какой алгоритм майнить?</h4>
+    <div class="card padding-15 push-down-10">
+        <code>rx/c64</code>, вариант RandomX, на процессоре. Используйте poolpayminer.
+    </div>
+
+    <h4 class="push-up-20">Можно ли изменить сложность?</h4>
+    <div class="card padding-15 push-down-10">
+        Она подстраивается под ваш хешрейт автоматически (примерно одна шара в 20 секунд). Фиксированной сложности нет.
+    </div>
+
+    <h4 class="push-up-20">Как делятся награды?</h4>
+    <div class="card padding-15 push-down-10">
+        Пропорционально вашим шарам в раунде, с учётом времени: старые шары раунда весят меньше новых, это защищает от переходов
+        майнеров между пулами. Укажите <code>solo:АДРЕС</code> в логине, если хотите забирать всю награду за найденный вами блок, а не делить её.
+    </div>
+
+    <h4 class="push-up-20">Когда придут выплаты?</h4>
+    <div class="card padding-15 push-down-10">
+        Награда за блок зачисляется на балансы четырьмя частями: монета блокирует каждую награду и отдаёт её четырьмя равными частями примерно через <strong>24 часа, 30, 60 и 90 дней</strong>
+        (пул зачисляет первую часть через 300 блоков, каждую следующую когда она разблокируется; заблокированный остаток виден в вашем кабинете). Все, чей баланс выше минимальной выплаты,
+        получают деньги одной транзакцией за раунд; комиссию сети делят между собой получатели.
+        Выплата появляется на странице Payments со ссылкой на транзакцию в обозревателе.
+    </div>
+
+    <h4 class="push-up-20">Пул не принимает мой адрес</h4>
+    <div class="card padding-15 push-down-10">
+        Нужен обычный адрес C64 Chain, начинающийся с <code>Wo</code> (97 символов). Скопируйте его из кошелька без пробелов.
+    </div>
+</div>
+
+<script>
+var faqLang = (typeof langCode !== 'undefined' && langCode === 'ru') ? 'ru' : 'en';
+$('.faq').hide().filter('[data-faq="' + faqLang + '"]').show();
+currentPage = { destroy: function () {}, update: function () {} };
+</script>

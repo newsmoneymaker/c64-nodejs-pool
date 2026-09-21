@@ -1,0 +1,17 @@
+[Unit]
+Description=C64 Chain pool: charts data collector (hash rate, difficulty, miners, workers on the home page)
+After=c64-pool-redis.service c64-pool-api.service
+Requires=c64-pool-redis.service
+[Service]
+Type=simple
+User=c64pool
+WorkingDirectory=/opt/c64-nodejs-pool
+ExecStart=/usr/bin/node /opt/c64-nodejs-pool/init.js -module=chartsDataCollector
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

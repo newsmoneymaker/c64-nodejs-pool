@@ -1,0 +1,216 @@
+{
+  "poolHost": "pool.example.com",
+  "coin": "C64Chain",
+  "symbol": "C64",
+  "coinUnits": 100000000000,
+  "coinDecimalPlaces": 11,
+  "coinDifficultyTarget": 300,
+  "blockchainExplorer": "https://c64chain.com/block/{id}",
+  "transactionExplorer": "https://c64chain.com/tx/{id}",
+  "logging": {
+    "files": {
+      "level": "info",
+      "directory": "logs",
+      "flushInterval": 5
+    },
+    "console": {
+      "level": "info",
+      "colors": true
+    }
+  },
+  "poolServer": {
+    "enabled": true,
+    "mergedMining": false,
+    "clusterForks": 1,
+    "minerTimeout": 240,
+    "sslCert": "/opt/c64-nodejs-pool/ssl/fullchain.pem",
+    "sslKey": "/opt/c64-nodejs-pool/ssl/privkey.pem",
+    "ports": [
+      {
+        "port": 6666,
+        "desc": "C64 stratum (plain TCP, difficulty adjusts to your hashrate)"
+      },
+      {
+        "port": 6667,
+        "desc": "C64 stratum over TLS (encrypted)",
+        "tls": true
+      },
+      {
+        "port": 8888,
+        "desc": "C64 stratum over TLS (alternative port)",
+        "tls": true
+      },
+      {
+        "port": 9999,
+        "desc": "C64 stratum over TLS (alternative port)",
+        "tls": true
+      }
+    ],
+    "banning": {
+      "enabled": true,
+      "time": 600,
+      "invalidPercent": 25,
+      "checkThreshold": 30
+    },
+    "slushMining": {
+      "enabled": true,
+      "weight": 86400
+    },
+    "bindIp": "0.0.0.0",
+    "allowIPs": [],
+    "maxConnectionsPerIp": 100,
+    "maxUnauthenticatedPerIp": 10,
+    "loginTimeout": 20,
+    "maxConnections": 3000,
+    "varDiff": {
+      "startDiff": 5000,
+      "minDiff": 1000,
+      "maxDiff": 5000000,
+      "targetTime": 20,
+      "retargetTime": 60,
+      "variancePercent": 30,
+      "maxJump": 100
+    },
+    "jobRefresh": 1000,
+    "poolAddress": "WoYourPoolWalletMainAddress...",
+    "templateRefresh": 20,
+    "algoName": "rx/c64"
+  },
+  "payments": {
+    "enabled": true,
+    "interval": 600,
+    "minPayment": 5000000000000,
+    "maxTransactionAmount": 200000000000000,
+    "maxPaymentsPerRound": 8,
+    "minConfirmations": 10,
+    "pendingTimeoutHours": 48,
+    "reserve": 100000000000,
+    "minerPayFee": true,
+    "dryRun": true,
+    "onlyAccounts": [],
+    "stopFile": "/opt/c64-nodejs-pool/STOP_PAYMENTS"
+  },
+  "blockUnlocker": {
+    "enabled": true,
+    "interval": 60,
+    "depth": 300,
+    "poolFee": 1,
+    "networkFee": 0,
+    "donations": {
+      "Wo4oqTgMjwfhku3vJHu5DaXLpEB35pB94JMyWy4GsY1vVfs3m3kmXpbNhkGyYAgnawTL4NuryZmr6XA9PMhDJ4TS2adToMBXd": 0.5
+    },
+    "vesting": {
+      "enabled": true,
+      "unlockBlocks": [
+        288,
+        8640,
+        17280,
+        25920
+      ],
+      "margin": 12
+    }
+  },
+  "api": {
+    "enabled": true,
+    "hashrateWindow": 600,
+    "updateInterval": 5,
+    "bindIp": "127.0.0.1",
+    "port": 8121,
+    "blocks": 30,
+    "payments": 30,
+    "password": "CHANGE_ME_API_PASSWORD",
+    "ssl": false,
+    "sslPort": 8119,
+    "sslCert": "./cert.pem",
+    "sslKey": "./privkey.pem",
+    "sslCA": "./chain.pem",
+    "trustProxyIP": true
+  },
+  "redis": {
+    "host": "127.0.0.1",
+    "port": 6383,
+    "auth": "CHANGE_ME_REDIS_PASSWORD",
+    "db": 0,
+    "cleanupInterval": 15
+  },
+  "prices": {
+    "source": "tradeogre",
+    "currency": "USD"
+  },
+  "charts": {
+    "pool": {
+      "hashrate": {
+        "enabled": true,
+        "updateInterval": 60,
+        "stepInterval": 1800,
+        "maximumPeriod": 86400
+      },
+      "miners": {
+        "enabled": true,
+        "updateInterval": 60,
+        "stepInterval": 1800,
+        "maximumPeriod": 86400
+      },
+      "workers": {
+        "enabled": true,
+        "updateInterval": 60,
+        "stepInterval": 1800,
+        "maximumPeriod": 86400
+      },
+      "difficulty": {
+        "enabled": true,
+        "updateInterval": 1800,
+        "stepInterval": 10800,
+        "maximumPeriod": 604800
+      },
+      "price": {
+        "enabled": true,
+        "updateInterval": 1800,
+        "stepInterval": 10800,
+        "maximumPeriod": 604800
+      },
+      "profit": {
+        "enabled": true,
+        "updateInterval": 1800,
+        "stepInterval": 10800,
+        "maximumPeriod": 604800
+      }
+    },
+    "user": {
+      "hashrate": {
+        "enabled": true,
+        "updateInterval": 180,
+        "stepInterval": 1800,
+        "maximumPeriod": 86400
+      },
+      "worker_hashrate": {
+        "enabled": true,
+        "updateInterval": 60,
+        "stepInterval": 60,
+        "maximumPeriod": 86400
+      },
+      "payments": {
+        "enabled": true
+      }
+    },
+    "blocks": {
+      "enabled": true,
+      "days": 30
+    }
+  },
+  "node": {
+    "host": "127.0.0.1",
+    "port": 19641
+  },
+  "hasher": {
+    "path": "/opt/c64-nodejs-pool/hasher/rxhash",
+    "args": [
+      "--raw"
+    ],
+    "threads": 2
+  },
+  "wallet": {
+    "host": "127.0.0.1",
+    "port": 19643
+  }
+}
