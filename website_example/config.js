@@ -18,6 +18,7 @@ var telegram = "";
 var discord = "";
 var github = "";
 var minerDownload = "/downloads/";      // poolpayminer (optional menu item; leave empty to hide)
+var allPoolsUrl = "https://all.pool-pay.com/";      // link to the page listing every pool-pay.com pool
 
 // No exchange data source for C64 Chain here, market widgets are hidden
 var marketCurrencies = [];
